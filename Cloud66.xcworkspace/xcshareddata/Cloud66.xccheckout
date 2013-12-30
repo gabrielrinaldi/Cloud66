@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>83F3ABCE-9069-47B3-90AD-9FCD3A6875AE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Cloud66</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7EE0DAC4-3215-4849-8437-CCC6A66ECB03</key>
+		<string>ssh://github.com/gabrielrinaldi/Cloud66.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Cloud66.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7EE0DAC4-3215-4849-8437-CCC6A66ECB03</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/gabrielrinaldi/Cloud66.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7EE0DAC4-3215-4849-8437-CCC6A66ECB03</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7EE0DAC4-3215-4849-8437-CCC6A66ECB03</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cloud66</string>
+		</dict>
+	</array>
+</dict>
+</plist>

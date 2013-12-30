@@ -1,0 +1,123 @@
+/* 
+  Localizable.strings
+  Cloud66
+
+  The MIT License (MIT)
+
+  Copyright (c) 2013 Gabriel Rinaldi
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+*/
+
+// View titles
+
+"SettingsTitle" = "Settings";
+"StacksTitle" = "Stacks";
+"StackDetailTitle" = "Details";
+
+// Button titles
+
+"CloseButton" = "Close";
+"CopyUIDMenuButton" = "Copy UID";
+
+// Settings
+
+"NotificationsTitle" = "Updates";
+"NotificationToggle" = "Notifications";
+"BackgroundRefreshToggle" = "Background Refresh";
+"FeedbackTitle" = "Feedback";
+"ReportIssue" = "New feedback";
+"OldIssues" = "Messages";
+"RateApp" = "Rate app";
+"SignOut" = "Sign out";
+
+// Stack fields
+
+"StackUID" = "UID";
+"StackName" = "Name";
+"StackEnvironment" = "Environment";
+"StackGitBranch" = "Branch";
+"StackLanguage" = "Language";
+"StackFramework" = "Framework";
+"StackCloud" = "Cloud";
+"StackStatus" = "Status";
+"StackLastActivity" = "Last activity";
+"StatusTitle" = "Status";
+"StackCreatedAt" = "Created at";
+"StackRedeploy" = "Redeploy";
+"StackMaintenanceOn" = "Enter Maintenance Mode";
+"StackMaintenanceOff" = "Leave Maintenance Mode";
+
+// Notification messages
+"StackMaintenanceNowOn" = "Stack is in Maintenance Mode";
+"StackMaintenanceNowOff" = "Stack is not in Maintenance Mode";
+"StackMaintenanceFailed" = "Failed to change Maintenance Mode";
+"StackQueuedForDeployment" = "Stack queued for deployment";
+"StackFailedToQueue" = "Stack redeployment failed";
+"StatusFailedRefresh" = "Could not get Stack status";
+
+// Stack groupings
+
+"InfoTitle" = "Information";
+"SettingsTitle" = "Settings";
+"ServersTitle" = "Servers";
+
+// Alerts
+
+"RedeployAlertTitle" = "Redeploy";
+"RedeployAlertMessage" = "Are you sure you want to redeploy this stack?";
+"MaintenanceAlertTitle" = "Maintenance";
+"MaintenanceOnAlertMessage" = "Are you sure you want to enter maintenance mode?";
+"MaintenanceOffAlertMessage" = "Are you sure you want to leave maintenance mode?";
+"CancelAlertButton" = "No";
+"ConfirmAlertButton" = "Yes";
+
+// Stack status
+
+"STK_QUEUED" = "Pending analysis";
+"STK_SUCCESS" = "Deployed";
+"STK_FAILED" = "Deployment failed";
+"STK_ANALYSING" = "Analyzing";
+"STK_ANALYSED" = "Analyzed";
+"STK_QUEUED_FOR_DEPLOYING" = "Queued for deployment";
+"STK_DEPLOYING" = "Deploying";
+"STK_TERMINAL_FAILURE" = "Unable to analyze";
+"STK_UNKNOWN" = "Unknown";
+
+// Stack health
+
+"HLT_BROKEN" = "Failed";
+"HLT_BUILDING" = "Building";
+"HLT_OK" = "Healthy";
+"HLT_PARTIAL" = "Impaired";
+"HLT_UNKNOWN" = "Unknown";
+
+// Sections
+
+"development" = "Development";
+"qa" = "QA";
+"staging" = "Staging";
+"production" = "Production";
+"FavoriteStackSection" = "Favorites";
+
+// Refresh messages
+
+"FailedToRefresh" = "Failed to refresh";
+"RefreshingData" = "Refreshing data...";
+"LastUpdatedOn" = "Last updated %@";

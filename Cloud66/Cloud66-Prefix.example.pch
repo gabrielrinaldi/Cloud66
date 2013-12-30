@@ -1,0 +1,49 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_7_0
+    #warning "This project uses features only available in iOS SDK 7.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import <CoreData/CoreData.h>
+    #import <CocoaLumberjack/DDLog.h>
+    #import "Mixpanel+Helpers.h"
+    #import "CSAppDelegate.h"
+#endif
+
+#define CS_CLIENT_ID @""
+#define CS_CLIENT_SECRET @""
+#define CS_REDIRECT_URI @"cloud66://oauth"
+#define CS_SCOPES @"public+redeploy+users"
+
+#define CS_STATUS_ADDRESS @"http://status.cloud66.com"
+
+#define CS_HOCKEY_APP_IDENTIFIER @""
+#define CS_HOCKEY_APP_BETA_IDENTIFIER @""
+
+#ifdef APPSTORE
+    #define CS_MIXPANEL_TOKEN @""
+#else
+    #define CS_MIXPANEL_TOKEN @""
+#endif
+
+#define TOKEN_KEY @"token"
+#define FETCH_KEY @"backgroundFetch"
+
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+    do { \
+        _Pragma("clang diagnostic push") \
+        _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+        Stuff; \
+        _Pragma("clang diagnostic pop") \
+    } while (0)
+
+#define NSLog(__FORMAT__, ...) DDLogVerbose((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)

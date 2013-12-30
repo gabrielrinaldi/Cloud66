@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Server" representedClassName="Server" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" syncable="YES"/>
+        <attribute name="distro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="distroVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dnsRecord" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loadBalancer" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="params" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="serverType" attributeType="String" syncable="YES"/>
+        <attribute name="uid" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="updatedAt" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="userName" attributeType="String" syncable="YES"/>
+        <attribute name="vendorUid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="serverGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ServerGroup" inverseName="servers" inverseEntity="ServerGroup" syncable="YES"/>
+    </entity>
+    <entity name="ServerGroup" representedClassName="ServerGroup" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="rid" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="subType" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="updatedAt" attributeType="Date" indexed="YES" syncable="YES"/>
+        <relationship name="servers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Server" inverseName="serverGroup" inverseEntity="Server" syncable="YES"/>
+        <relationship name="stack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stack" inverseName="serverGroups" inverseEntity="Stack" syncable="YES"/>
+        <fetchedProperty name="loadBalancer" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="ServerGroup" predicateString="servers.loadBalancer = YES"/>
+        </fetchedProperty>
+    </entity>
+    <entity name="Stack" representedClassName="Stack" syncable="YES">
+        <attribute name="cloud" optional="YES" attributeType="String" indexed="YES" syncable="YES">
+            <userInfo>
+                <entry key="key" value="cloud"/>
+            </userInfo>
+        </attribute>
+        <attribute name="createdAt" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="key" value="created_at"/>
+            </userInfo>
+        </attribute>
+        <attribute name="environment" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="key" value="environment"/>
+            </userInfo>
+        </attribute>
+        <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" indexed="YES" syncable="YES"/>
+        <attribute name="fqdn" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="key" value="fqdn"/>
+            </userInfo>
+        </attribute>
+        <attribute name="framework" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="key" value="framework"/>
+            </userInfo>
+        </attribute>
+        <attribute name="git" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="key" value="git"/>
+            </userInfo>
+        </attribute>
+        <attribute name="gitBranch" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="key" value="git_branch"/>
+            </userInfo>
+        </attribute>
+        <attribute name="health" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES">
+            <userInfo>
+                <entry key="key" value="health"/>
+            </userInfo>
+        </attribute>
+        <attribute name="language" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="key" value="language"/>
+            </userInfo>
+        </attribute>
+        <attribute name="lastActivity" optional="YES" attributeType="Date" indexed="YES" syncable="YES">
+            <userInfo>
+                <entry key="key" value="last_activity"/>
+            </userInfo>
+        </attribute>
+        <attribute name="maintenanceMode" optional="YES" attributeType="Boolean" syncable="YES">
+            <userInfo>
+                <entry key="key" value="maintenance_mode"/>
+            </userInfo>
+        </attribute>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES">
+            <userInfo>
+                <entry key="key" value="name"/>
+            </userInfo>
+        </attribute>
+        <attribute name="redeploymentHook" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="key" value="redeploy_hook"/>
+            </userInfo>
+        </attribute>
+        <attribute name="section" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="status" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES">
+            <userInfo>
+                <entry key="key" value="status"/>
+            </userInfo>
+        </attribute>
+        <attribute name="uid" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="updatedAt" attributeType="Date" indexed="YES" syncable="YES">
+            <userInfo>
+                <entry key="key" value="updated_at"/>
+            </userInfo>
+        </attribute>
+        <relationship name="serverGroups" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ServerGroup" inverseName="stack" inverseEntity="ServerGroup" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Server" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ServerGroup" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Stack" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
