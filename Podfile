@@ -2,7 +2,6 @@ platform :ios, '7.0'
 
 xcodeproj 'Cloud66', 'App Store' => :release, 'Ad Hoc' => :release
 
-pod 'Appirater', '~> 2.0.2'
 pod 'CocoaLumberjack', '~> 1.6.2', :inhibit_warnings => true
 pod 'CSNotificationView', '~> 0.3'
 pod 'FormatterKit/TimeIntervalFormatter', '~> 1.3.0'

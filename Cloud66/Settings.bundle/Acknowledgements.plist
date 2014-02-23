@@ -41,14 +41,6 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2013. Arash Payan. This library is distributed under the terms of the MIT/X11.</string>
-			<key>Title</key>
-			<string>Appirater</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2013 Christian Schwarz

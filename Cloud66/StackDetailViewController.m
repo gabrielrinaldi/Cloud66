@@ -25,7 +25,6 @@
 //  THE SOFTWARE.
 //
 
-#import <Appirater/Appirater.h>
 #import <FormatterKit/TTTTimeIntervalFormatter.h>
 #import "CSNotificationView+MainQueue.h"
 #import "GRAlertView.h"
@@ -111,8 +110,6 @@
     [[Mixpanel sharedInstance] track:@"Maintenance" properties:@{ @"Enabled" : [NSNumber numberWithBool:maintenanceMode] }];
 
     [[self stack] setMaintenanceModeEnabled:maintenanceMode success:^{
-        [Appirater userDidSignificantEvent:YES];
-
         [CSNotificationView showInMainQueueAndInViewController:self style:CSNotificationViewStyleSuccess message:(maintenanceMode) ? NSLocalizedString(@"StackMaintenanceNowOn", @"Notification messages") : NSLocalizedString(@"StackMaintenanceNowOff", @"Notification messages")];
     } failure:^(NSError *error) {
         [CSNotificationView showInMainQueueAndInViewController:self style:CSNotificationViewStyleError message:NSLocalizedString(@"StackMaintenanceFailed", @"Notification messages")];
@@ -123,8 +120,6 @@
     [[Mixpanel sharedInstance] track:@"Redeploy"];
 
     [[self stack] redeployWithSuccess:^{
-        [Appirater userDidSignificantEvent:YES];
-
         [CSNotificationView showInMainQueueAndInViewController:self style:CSNotificationViewStyleSuccess message:NSLocalizedString(@"StackQueuedForDeployment", @"Notification messages")];
     } failure:^(NSError *error) {
         [CSNotificationView showInMainQueueAndInViewController:self style:CSNotificationViewStyleError message:NSLocalizedString(@"StackFailedToQueue", @"Notification messages")];
@@ -133,8 +128,6 @@
 
 - (void)openGit {
     [[Mixpanel sharedInstance] track:@"Open Git"];
-
-    [Appirater userDidSignificantEvent:YES];
 
     NSString *url = [[[self stack] git] stringByReplacingOccurrencesOfString:@"git@github.com:" withString:@"https://github.com/"];
     url = [url stringByReplacingOccurrencesOfString:@"git://github.com/" withString:@"https://github.com/"];
@@ -146,8 +139,6 @@
 
 - (void)copyUID:(id)sender {
     [[Mixpanel sharedInstance] track:@"Copy UID"];
-
-    [Appirater userDidSignificantEvent:YES];
 
     [[UIPasteboard generalPasteboard] setString:[[self stack] uid]];
 }
