@@ -241,19 +241,22 @@
                                         }];
 
     [sections addObject:settings];
-    
-    NSMutableDictionary *servers = [NSMutableDictionary dictionaryWithDictionary:@{
-                                       @"title" : NSLocalizedString(@"ServersTitle", @"Stacks"),
-                                       @"rows" : @[
-                                               @{
-                                                   @"title" : NSLocalizedString(@"StackCloud", @"Stacks"),
-                                                   @"value" : [[self stack] cloud],
-                                                   @"type" : @"cloud"
-                                                   }
-                                               ]
-                                       }];
 
-    [sections addObject:servers];
+    NSString *cloud = [[self stack] cloud];
+    if (cloud) {
+        NSMutableDictionary *servers = [NSMutableDictionary dictionaryWithDictionary:@{
+                                           @"title" : NSLocalizedString(@"ServersTitle", @"Stacks"),
+                                           @"rows" : @[
+                                                   @{
+                                                       @"title" : NSLocalizedString(@"StackCloud", @"Stacks"),
+                                                       @"value" : cloud,
+                                                       @"type" : @"cloud"
+                                                       }
+                                                   ]
+                                           }];
+
+        [sections addObject:servers];
+    }
     
     NSString *maitenance = [[[self stack] maintenanceMode] boolValue] ? NSLocalizedString(@"StackMaintenanceOff", @"Stacks") : NSLocalizedString(@"StackMaintenanceOn", @"Stacks");
     NSDictionary *actions = [NSMutableDictionary dictionaryWithDictionary:@{
