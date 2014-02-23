@@ -37,6 +37,7 @@
 		C08D56F117E0164F00BDC0D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08D56D417E0164F00BDC0D4 /* UIKit.framework */; };
 		C08D56F217E0164F00BDC0D4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08D56D617E0164F00BDC0D4 /* CoreData.framework */; };
 		C08D56FC17E0164F00BDC0D4 /* Cloud66Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C08D56FB17E0164F00BDC0D4 /* Cloud66Tests.m */; };
+		C0AF1F0A18B9D272000EE96B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AF1F0918B9D272000EE96B /* Crashlytics.framework */; };
 		C0C1C9A118104591007A86E9 /* Mixpanel+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C1C9A018104591007A86E9 /* Mixpanel+Helpers.m */; };
 		C0CD22971803B462004375EF /* CSAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CD22961803B462004375EF /* CSAppearanceManager.m */; };
 		C0CD229918066C02004375EF /* URLIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C0CD229818066C02004375EF /* URLIcon.png */; };
@@ -106,6 +107,8 @@
 		C08D56EE17E0164F00BDC0D4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C08D56F717E0164F00BDC0D4 /* Cloud66Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cloud66Tests-Info.plist"; sourceTree = "<group>"; };
 		C08D56FB17E0164F00BDC0D4 /* Cloud66Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cloud66Tests.m; sourceTree = "<group>"; };
+		C0AF1F0818B9D0E2000EE96B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		C0AF1F0918B9D272000EE96B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Vendor/Crashlytics.framework; sourceTree = "<group>"; };
 		C0C1C99F18104591007A86E9 /* Mixpanel+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mixpanel+Helpers.h"; sourceTree = "<group>"; };
 		C0C1C9A018104591007A86E9 /* Mixpanel+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Mixpanel+Helpers.m"; sourceTree = "<group>"; };
 		C0CD22951803B462004375EF /* CSAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSAppearanceManager.h; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 			files = (
 				C0610D7317F1520E008F37AF /* MobileCoreServices.framework in Frameworks */,
 				C0610D7117F15203008F37AF /* SystemConfiguration.framework in Frameworks */,
+				C0AF1F0A18B9D272000EE96B /* Crashlytics.framework in Frameworks */,
 				C08D56D317E0164F00BDC0D4 /* CoreGraphics.framework in Frameworks */,
 				C08D56D717E0164F00BDC0D4 /* CoreData.framework in Frameworks */,
 				C08D56D517E0164F00BDC0D4 /* UIKit.framework in Frameworks */,
@@ -183,6 +187,7 @@
 			children = (
 				C08D56D617E0164F00BDC0D4 /* CoreData.framework */,
 				C08D56D217E0164F00BDC0D4 /* CoreGraphics.framework */,
+				C0AF1F0918B9D272000EE96B /* Crashlytics.framework */,
 				C08D56D017E0164F00BDC0D4 /* Foundation.framework */,
 				A30FA86F2191497BAF943F0D /* libPods.a */,
 				C0610D7217F1520E008F37AF /* MobileCoreServices.framework */,
@@ -214,10 +219,11 @@
 			children = (
 				C08D56DA17E0164F00BDC0D4 /* Cloud66-Info.plist */,
 				C08D56E017E0164F00BDC0D4 /* Cloud66-Prefix.pch */,
+				C0AF1F0818B9D0E2000EE96B /* Config.xcconfig */,
 				C0F57D0917E6A3DC00181EFF /* Localizable.strings */,
 				C08D56DE17E0164F00BDC0D4 /* main.m */,
-				C0CD229818066C02004375EF /* URLIcon.png */,
 				C00F8EB418713C0E00701A76 /* Settings.bundle */,
+				C0CD229818066C02004375EF /* URLIcon.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				C08D56CA17E0164F00BDC0D4 /* Frameworks */,
 				C08D56CB17E0164F00BDC0D4 /* Resources */,
 				FD940239EFCE4493A48C0254 /* Copy Pods Resources */,
+				C0AF1F0718B9D0A8000EE96B /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -424,6 +431,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		C0AF1F0718B9D0A8000EE96B /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"${CRASHLYTICS_API_KEY}\"\n\n./Vendor/Crashlytics.framework/run ${CRASHLYTICS_API_KEY}";
+		};
 		C8726A965E914D49967B46F9 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -518,6 +539,7 @@
 /* Begin XCBuildConfiguration section */
 		C04AB219180FAEBA00A8ABD5 /* App Store */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0AF1F0818B9D0E2000EE96B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
@@ -558,6 +580,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gabriel Rinaldi (Q9U23GRL6K)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cloud66/Cloud66-Prefix.pch";
 				INFOPLIST_FILE = "Cloud66/Cloud66-Info.plist";
@@ -590,6 +613,7 @@
 		};
 		C08D56FD17E0164F00BDC0D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0AF1F0818B9D0E2000EE96B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
@@ -629,6 +653,7 @@
 		};
 		C08D56FE17E0164F00BDC0D4 /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0AF1F0818B9D0E2000EE96B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
@@ -669,6 +694,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gabriel Rinaldi (P3NX7C4T88)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cloud66/Cloud66-Prefix.pch";
 				INFOPLIST_FILE = "Cloud66/Cloud66-Info.plist";
@@ -687,6 +713,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gabriel Rinaldi (Q9U23GRL6K)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cloud66/Cloud66-Prefix.pch";
 				INFOPLIST_FILE = "Cloud66/Cloud66-Info.plist";

@@ -25,6 +25,7 @@
 //  THE SOFTWARE.
 //
 
+#import <Crashlytics/Crashlytics.h>
 #import <CocoaLumberjack/DDASLLogger.h>
 #import <CocoaLumberjack/DDTTYLogger.h>
 #import <CSNotificationView/CSNotificationView.h>
@@ -60,6 +61,7 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[BITHockeyManager sharedHockeyManager] configureWithBetaIdentifier:CS_HOCKEY_APP_BETA_IDENTIFIER liveIdentifier:CS_HOCKEY_APP_IDENTIFIER delegate:self];
+    [[BITHockeyManager sharedHockeyManager] setDisableCrashManager:YES];
 #ifdef APPSTORE
     [[BITHockeyManager sharedHockeyManager] setEnableStoreUpdateManager:YES];
 #endif
@@ -67,6 +69,7 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
     [[[BITHockeyManager sharedHockeyManager] feedbackManager] setRequireUserName:BITFeedbackUserDataElementRequired];
     [[BITHockeyManager sharedHockeyManager] startManager];
 
+    [Crashlytics startWithAPIKey:CS_CRASHLYTICS_API_KEY];
 
     [Mixpanel sharedInstanceWithToken:CS_MIXPANEL_TOKEN];
 

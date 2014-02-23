@@ -5,3 +5,5 @@ xcuserdata
 Pods
 
 Cloud66/Cloud66-Prefix.pch
+
+/Cloud66/Config.xcconfig

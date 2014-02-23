@@ -22,11 +22,12 @@ Please run `pod install` after cloning this project. If you don't know CocoaPods
 ### Prefix
 
 * Copy the `Cloud66-Prefix.example.pch` to `Cloud66-Prefix.pch`.
+* Copy the `Config.example.xcconfig` to `Config.xcconfig`.
 * Update the values to your own.
 
 ## Credits
 
-Cloud 66 is brought to you by [Gabriel Rinaldi](http://gabrielrinaldi.me) and [contributors to the project](https://github.com/gabrielrinaldi/Cloud66/graphs/contributors). If you have feature suggestions or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/gabrielrinaldi/Cloud66/issues/new). 
+Cloud 66 is brought to you by [Gabriel Rinaldi](http://gabrielrinaldi.me) and [contributors to the project](https://github.com/gabrielrinaldi/Cloud66/graphs/contributors). If you have feature suggestions or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/gabrielrinaldi/Cloud66/issues/new).
 
 ## License
 
