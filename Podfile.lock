@@ -1,45 +1,51 @@
 PODS:
-  - AFNetworking (2.0.3):
+  - AFNetworking (2.1.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.0.3):
+  - AFNetworking/NSURLConnection (2.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.0.3):
+  - AFNetworking/NSURLSession (2.1.0):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.0.3)
-  - AFNetworking/Security (2.0.3)
-  - AFNetworking/Serialization (2.0.3)
-  - AFNetworking/UIKit (2.0.3):
+  - AFNetworking/Reachability (2.1.0)
+  - AFNetworking/Security (2.1.0)
+  - AFNetworking/Serialization (2.1.0)
+  - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
-  - CocoaLumberjack (1.6.2)
-  - CSNotificationView (0.3)
-  - FormatterKit/TimeIntervalFormatter (1.3.0)
-  - GROAuth2SessionManager (0.1.4):
-    - AFNetworking (~> 2.0.0)
-  - HockeySDK (3.5.0)
-  - Mixpanel (2.0.4)
+  - CocoaLumberjack (1.6.5.1):
+    - CocoaLumberjack/Core
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.6.5.1)
+  - CocoaLumberjack/Extensions (1.6.5.1):
+    - CocoaLumberjack/Core
+  - CSNotificationView (0.3.3)
+  - FormatterKit/TimeIntervalFormatter (1.4.0)
+  - GROAuth2SessionManager (0.2.1):
+    - AFNetworking (~> 2.1.0)
+  - HockeySDK (3.5.4)
+  - Mixpanel (2.0.5)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.1.0)
   - CocoaLumberjack (~> 1.6.2)
-  - CSNotificationView (~> 0.3)
-  - FormatterKit/TimeIntervalFormatter (~> 1.3.0)
-  - GROAuth2SessionManager (~> 0.1.4)
-  - HockeySDK (~> 3.5.0)
-  - Mixpanel (~> 2.0.4)
+  - CSNotificationView (~> 0.3.3)
+  - FormatterKit/TimeIntervalFormatter (~> 1.4.0)
+  - GROAuth2SessionManager (~> 0.2.1)
+  - HockeySDK (~> 3.5.3)
+  - Mixpanel (~> 2.0.5)
 
 SPEC CHECKSUMS:
-  AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
-  CocoaLumberjack: 19dceba2d0360ed383cba983bc3ef0dd089c42a1
-  CSNotificationView: 5b5040243ccf631f2039a670ee1dbd2160890f90
-  FormatterKit: b1a8f7b8eee927860c674de7f2abd53a28208c2a
-  GROAuth2SessionManager: 2b893b1aa9f70a4ee3a891b6810d6ac3ac42fb75
-  HockeySDK: 685e6ca0b78668ef8b595fba17fe087ea6074b05
-  Mixpanel: b23d1b358f9e2d3904ee13621beed4e5205929a5
+  AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  CocoaLumberjack: 17803afbade3126a377d32b8d23367264b44ced6
+  CSNotificationView: f14352657afe7255be9fb2446eb99d5914b97b5d
+  FormatterKit: 475c602b6098d69c3255c65cfe6cb6a27c175f57
+  GROAuth2SessionManager: ead3577ac5ee22f019e97472fe9e45759de4ad12
+  HockeySDK: 4f7f7e15c1f594e8ca1e16a09f04e7418289de7a
+  Mixpanel: ae75a13e121828944468502004686277203bc13b
 
 COCOAPODS: 0.29.0
