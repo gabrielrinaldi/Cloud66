@@ -1,0 +1,9 @@
+//
+//  Config.xcconfig
+//  Cloud66
+//
+//  Created by Gabriel Rinaldi on 2/22/14.
+//  Copyright (c) 2014 Gabriel Rinaldi. All rights reserved.
+//
+
+CRASHLYTICS_API_KEY =

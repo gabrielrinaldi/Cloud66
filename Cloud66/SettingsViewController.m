@@ -25,7 +25,6 @@
 //  THE SOFTWARE.
 //
 
-#import <Appirater/Appirater.h>
 #import <HockeySDK/HockeySDK.h>
 #import <HockeySDK/BITFeedbackManagerPrivate.h>
 #import "CSAppearanceManager.h"
@@ -91,12 +90,6 @@ static NSString *kSettingsSwitchCellIdentifier = @"kSettingsSwitchCellIdentifier
                                                 @"title" : NSLocalizedString(@"OldIssues", @"Settings"),
                                                 @"type" : @"action",
                                                 @"selector" : @"showIssues"
-                                                },
-                                            @{
-                                                @"icon" : @"RateIcon",
-                                                @"title" : NSLocalizedString(@"RateApp", @"Settings"),
-                                                @"type" : @"action",
-                                                @"selector" : @"rateApp"
                                                 }
                                             ]
                                     };
@@ -174,12 +167,6 @@ static NSString *kSettingsSwitchCellIdentifier = @"kSettingsSwitchCellIdentifier
     [[Mixpanel sharedInstance] track:@"Show issues"];
 
     [[[BITHockeyManager sharedHockeyManager] feedbackManager] showFeedbackListView];
-}
-
-- (void)rateApp {
-    [[Mixpanel sharedInstance] track:@"Rate app" properties:@{ @"Tyoe" : @"Manual" }];
-
-    [Appirater rateApp];
 }
 
 - (void)signOut {

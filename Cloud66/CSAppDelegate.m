@@ -25,7 +25,7 @@
 //  THE SOFTWARE.
 //
 
-#import <Appirater/Appirater.h>
+#import <Crashlytics/Crashlytics.h>
 #import <CocoaLumberjack/DDASLLogger.h>
 #import <CocoaLumberjack/DDTTYLogger.h>
 #import <CSNotificationView/CSNotificationView.h>
@@ -41,7 +41,7 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
 
 #pragma mark CSAppDelegate (Private)
 
-@interface CSAppDelegate () <AppiraterDelegate, BITHockeyManagerDelegate>
+@interface CSAppDelegate () <BITHockeyManagerDelegate>
 
 @end
 
@@ -61,6 +61,7 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[BITHockeyManager sharedHockeyManager] configureWithBetaIdentifier:CS_HOCKEY_APP_BETA_IDENTIFIER liveIdentifier:CS_HOCKEY_APP_IDENTIFIER delegate:self];
+    [[BITHockeyManager sharedHockeyManager] setDisableCrashManager:YES];
 #ifdef APPSTORE
     [[BITHockeyManager sharedHockeyManager] setEnableStoreUpdateManager:YES];
 #endif
@@ -68,6 +69,7 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
     [[[BITHockeyManager sharedHockeyManager] feedbackManager] setRequireUserName:BITFeedbackUserDataElementRequired];
     [[BITHockeyManager sharedHockeyManager] startManager];
 
+    [Crashlytics startWithAPIKey:CS_CRASHLYTICS_API_KEY];
 
     [Mixpanel sharedInstanceWithToken:CS_MIXPANEL_TOKEN];
 
@@ -78,13 +80,6 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:CSUserDidLogoutNotification object:nil];
-
-    [Appirater setAppId:@"642299804"];
-    [Appirater setDaysUntilPrompt:5];
-    [Appirater setUsesUntilPrompt:10];
-    [Appirater setSignificantEventsUntilPrompt:5];
-    [Appirater setTimeBeforeReminding:5];
-    [Appirater appLaunched:YES];
 
     if ([[NSUserDefaults standardUserDefaults] boolForKey:FETCH_KEY]) {
         [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
@@ -120,10 +115,6 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
     if ([[NSUserDefaults standardUserDefaults] objectForKey:TOKEN_KEY]) {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     }
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    [Appirater appEnteredForeground:YES];
 }
 
 #pragma mark - Push notifications
@@ -216,24 +207,6 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
     } failure:^(NSError *error) {
         completionHandler(UIBackgroundFetchResultFailed);
     }];
-}
-
-#pragma mark - App rating
-
-- (void)appiraterDidDisplayAlert:(Appirater *)appirater {
-    [[Mixpanel sharedInstance] track:@"Rate app" properties:@{ @"Type" : @"Auto" }];
-}
-
-- (void)appiraterDidDeclineToRate:(Appirater *)appirater {
-    [[Mixpanel sharedInstance] track:@"Rate app" properties:@{ @"Result" : @"Decline" }];
-}
-
-- (void)appiraterDidOptToRate:(Appirater *)appirater {
-    [[Mixpanel sharedInstance] track:@"Rate app" properties:@{ @"Result" : @"Rate" }];
-}
-
-- (void)appiraterDidOptToRemindLater:(Appirater *)appirater {
-    [[Mixpanel sharedInstance] track:@"Rate app" properties:@{ @"Result" : @"Remind me" }];
 }
 
 #pragma mark - Authentication handling
