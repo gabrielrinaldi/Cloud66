@@ -328,6 +328,14 @@
         }
 
         if ([[attribute attributeValueClassName] isEqualToString:@"NSDate"]) {
+            if ([stackDictionary objectForKey:[[attribute userInfo] objectForKey:@"key"]] == [NSNull null]) {
+                if ([self setValue:nil ifDifferentForKey:[attribute name]]) {
+                    isDirty = YES;
+                }
+                
+                continue;
+            }
+            
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
             [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
             
