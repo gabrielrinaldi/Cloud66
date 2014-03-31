@@ -329,13 +329,18 @@
 
         if ([[attribute attributeValueClassName] isEqualToString:@"NSDate"]) {
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
-            if ([[attribute name] isEqualToString:@"lastActivity"]) {
-                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
-            } else {
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+            
+            NSDate *date = [dateFormatter dateFromString:[stackDictionary objectForKey:[[attribute userInfo] objectForKey:@"key"]]];
+            if (!date) {
                 [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+                date = [dateFormatter dateFromString:[stackDictionary objectForKey:[[attribute userInfo] objectForKey:@"key"]]];
+            } else if (!date) {
+                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
+                date = [dateFormatter dateFromString:[stackDictionary objectForKey:[[attribute userInfo] objectForKey:@"key"]]];
             }
 
-            if ([self setValue:[dateFormatter dateFromString:[stackDictionary objectForKey:[[attribute userInfo] objectForKey:@"key"]]] ifDifferentForKey:[attribute name]]) {
+            if ([self setValue:date ifDifferentForKey:[attribute name]]) {
                 isDirty = YES;
             }
         } else {
