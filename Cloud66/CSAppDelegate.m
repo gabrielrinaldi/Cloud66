@@ -30,8 +30,6 @@
 #import <CocoaLumberjack/DDASLLogger.h>
 #import <CocoaLumberjack/DDTTYLogger.h>
 #import <CSNotificationView/CSNotificationView.h>
-#import <HockeySDK/HockeySDK.h>
-#import <HockeySDK/BITFeedbackManagerPrivate.h>
 #import "Stack.h"
 #import "CSAppearanceManager.h"
 #import "CSAPISessionManager.h"
@@ -39,12 +37,6 @@
 #import "StacksViewController.h"
 
 NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFailedToRegisterForRemoteNotificationsNotification";
-
-#pragma mark CSAppDelegate (Private)
-
-@interface CSAppDelegate () <BITHockeyManagerDelegate>
-
-@end
 
 #pragma mark - CSAppDelegate
 
@@ -61,15 +53,6 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
 #pragma mark - Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[BITHockeyManager sharedHockeyManager] configureWithBetaIdentifier:CS_HOCKEY_APP_BETA_IDENTIFIER liveIdentifier:CS_HOCKEY_APP_IDENTIFIER delegate:self];
-    [[BITHockeyManager sharedHockeyManager] setDisableCrashManager:YES];
-#ifdef APPSTORE
-    [[BITHockeyManager sharedHockeyManager] setEnableStoreUpdateManager:YES];
-#endif
-    [[[BITHockeyManager sharedHockeyManager] feedbackManager] setRequireUserEmail:BITFeedbackUserDataElementRequired];
-    [[[BITHockeyManager sharedHockeyManager] feedbackManager] setRequireUserName:BITFeedbackUserDataElementRequired];
-    [[BITHockeyManager sharedHockeyManager] startManager];
-
     [Crashlytics startWithAPIKey:CS_CRASHLYTICS_API_KEY];
 
     [Mixpanel sharedInstanceWithToken:CS_MIXPANEL_TOKEN];

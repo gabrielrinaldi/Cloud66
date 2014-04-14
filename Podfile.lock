@@ -30,7 +30,6 @@ PODS:
   - FormatterKit/TimeIntervalFormatter (1.4.2)
   - GROAuth2SessionManager (0.2.2):
     - AFNetworking (~> 2.2.1)
-  - HockeySDK (3.5.4)
   - Mixpanel (2.0.5)
 
 DEPENDENCIES:
@@ -40,7 +39,6 @@ DEPENDENCIES:
   - CSNotificationView (~> 0.3.5)
   - FormatterKit/TimeIntervalFormatter (~> 1.4.2)
   - GROAuth2SessionManager (~> 0.2.2)
-  - HockeySDK (~> 3.5.4)
   - Mixpanel (~> 2.0.5)
 
 SPEC CHECKSUMS:
@@ -50,7 +48,6 @@ SPEC CHECKSUMS:
   CSNotificationView: d54543c57662d91d8fe4fefd77dcfc7c2d12bfa9
   FormatterKit: 2c241963bc3bf3f2b52e82c0a8e29a8f9865bf3d
   GROAuth2SessionManager: 3500da9d67b18b6d31ea9c842eb5b8a84fb42b1c
-  HockeySDK: aa28abb106de7804d31acf515f2c9aa4e6481fd0
   Mixpanel: ae75a13e121828944468502004686277203bc13b
 
 COCOAPODS: 0.31.1

@@ -25,18 +25,18 @@
 //  THE SOFTWARE.
 //
 
-#import <HockeySDK/HockeySDK.h>
-#import <HockeySDK/BITFeedbackManagerPrivate.h>
 #import "CSAppearanceManager.h"
 #import "CSAPISessionManager.h"
 #import "SettingsViewController.h"
+
+@import MessageUI;
 
 static NSString *kSettingsCellIdentifier = @"kSettingsCellIdentifier";
 static NSString *kSettingsSwitchCellIdentifier = @"kSettingsSwitchCellIdentifier";
 
 #pragma mark SettingsViewController (Private)
 
-@interface SettingsViewController ()
+@interface SettingsViewController () <MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic, readonly) NSArray *sections;
 @property (strong, nonatomic, readonly) UISwitch *notificationSwitch;
@@ -84,12 +84,6 @@ static NSString *kSettingsSwitchCellIdentifier = @"kSettingsSwitchCellIdentifier
                                                 @"title" : NSLocalizedString(@"ReportIssue", @"Settings"),
                                                 @"type" : @"action",
                                                 @"selector" : @"reportIssue"
-                                                },
-                                            @{
-                                                @"icon" : @"IssuesIcon",
-                                                @"title" : NSLocalizedString(@"OldIssues", @"Settings"),
-                                                @"type" : @"action",
-                                                @"selector" : @"showIssues"
                                                 }
                                             ]
                                     };
@@ -158,19 +152,36 @@ static NSString *kSettingsSwitchCellIdentifier = @"kSettingsSwitchCellIdentifier
 }
 
 - (void)reportIssue {
+    if (![MFMailComposeViewController canSendMail]) {
+        [[Mixpanel sharedInstance] track:@"Cannot send email"];
+        
+        return;
+    }
+    
     [[Mixpanel sharedInstance] track:@"Report issue"];
-
-    [[[BITHockeyManager sharedHockeyManager] feedbackManager] showFeedbackComposeView];
-}
-
-- (void)showIssues {
-    [[Mixpanel sharedInstance] track:@"Show issues"];
-
-    [[[BITHockeyManager sharedHockeyManager] feedbackManager] showFeedbackListView];
+    
+    MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+    mailComposeViewController.mailComposeDelegate = self;
+    [mailComposeViewController setToRecipients:@[ @"hi@gabrielrinaldi.me" ]];
+    [mailComposeViewController setSubject:NSLocalizedString(@"ReportIssue", @"Settings")];
+    
+    if (mailComposeViewController) {
+        [self presentViewController:mailComposeViewController animated:YES completion:nil];
+    }
 }
 
 - (void)signOut {
     [[CSAPISessionManager sharedManager] logout];
+}
+    
+#pragma mark - Mail composer delegate
+    
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    if (result == MFMailComposeResultSent) {
+        [[Mixpanel sharedInstance] track:@"Issue reported"];
+    }
+    
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -339,20 +350,6 @@ static NSString *kSettingsSwitchCellIdentifier = @"kSettingsSwitchCellIdentifier
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSwitch) name:CSFailedToRegisterForRemoteNotificationsNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
-    NSString *userEmail = [[[BITHockeyManager sharedHockeyManager] feedbackManager] userEmail];
-    if (userEmail) {
-        [[[Mixpanel sharedInstance] people] set:@"$email" to:userEmail];
-    }
-
-    NSString *userName = [[[BITHockeyManager sharedHockeyManager] feedbackManager] userName];
-    if (userName) {
-        [[[Mixpanel sharedInstance] people] set:@"Name" to:userName];
-    }
 }
 
 - (void)dealloc {

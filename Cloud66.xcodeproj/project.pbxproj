@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		941269A0B8084A79BD7D65B2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A30FA86F2191497BAF943F0D /* libPods.a */; };
 		C00F8EB518713C0E00701A76 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C00F8EB418713C0E00701A76 /* Settings.bundle */; };
+		C01A0CDD18FBBC56005442D0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01A0CDC18FBBC56005442D0 /* MessageUI.framework */; };
 		C0221457181F749B00EF18A9 /* CSNotificationView+MainQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C0221456181F749B00EF18A9 /* CSNotificationView+MainQueue.m */; };
 		C022145A181F890000EF18A9 /* StackDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0221459181F890000EF18A9 /* StackDetailTableViewCell.m */; };
 		C022145D18236B0000EF18A9 /* GRWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C022145C18236B0000EF18A9 /* GRWebView.m */; };
@@ -66,6 +67,7 @@
 /* Begin PBXFileReference section */
 		A30FA86F2191497BAF943F0D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00F8EB418713C0E00701A76 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		C01A0CDC18FBBC56005442D0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C0221455181F749B00EF18A9 /* CSNotificationView+MainQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CSNotificationView+MainQueue.h"; sourceTree = "<group>"; };
 		C0221456181F749B00EF18A9 /* CSNotificationView+MainQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CSNotificationView+MainQueue.m"; sourceTree = "<group>"; };
 		C0221458181F890000EF18A9 /* StackDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01A0CDD18FBBC56005442D0 /* MessageUI.framework in Frameworks */,
 				C0610D7317F1520E008F37AF /* MobileCoreServices.framework in Frameworks */,
 				C0610D7117F15203008F37AF /* SystemConfiguration.framework in Frameworks */,
 				C0AF1F0A18B9D272000EE96B /* Crashlytics.framework in Frameworks */,
@@ -185,6 +188,7 @@
 		C08D56CF17E0164F00BDC0D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C01A0CDC18FBBC56005442D0 /* MessageUI.framework */,
 				C08D56D617E0164F00BDC0D4 /* CoreData.framework */,
 				C08D56D217E0164F00BDC0D4 /* CoreGraphics.framework */,
 				C0AF1F0918B9D272000EE96B /* Crashlytics.framework */,

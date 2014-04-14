@@ -8,7 +8,6 @@ pod 'CrashlyticsLumberjack', '~> 1.0.1'
 pod 'CSNotificationView', '~> 0.3.5'
 pod 'FormatterKit/TimeIntervalFormatter', '~> 1.4.2'
 pod 'GROAuth2SessionManager', '~> 0.2.2'
-pod 'HockeySDK', '~> 3.5.4', :inhibit_warnings => true
 pod 'Mixpanel', '~> 2.0.5'
 
 post_install do | installer |
