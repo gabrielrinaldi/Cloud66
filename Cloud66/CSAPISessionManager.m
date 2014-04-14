@@ -31,7 +31,7 @@
 NSString * const CSUserDidLoginNotification = @"CSUserDidLoginNotification";
 NSString * const CSUserDidLogoutNotification = @"CSUserDidLogoutNotification";
 
-static NSString * const kCSAPIBaseURLString = @"https://www.cloud66.com/api/2/";
+static NSString * const kCSAPIBaseURLString = @"https://app.cloud66.com/api/2/";
 
 #pragma mark CSAPISessionManager (Private)
 
@@ -100,7 +100,7 @@ static NSString * const kCSAPIBaseURLString = @"https://www.cloud66.com/api/2/";
 #pragma mark - Authorize URL
 
 + (NSURL *)oauthAuthorizeURL {
-    NSString *urlString = [NSString stringWithFormat:@"https://www.cloud66.com/oauth/authorize?client_id=%@&redirect_uri=%@&response_type=code&scope=%@", CS_CLIENT_ID, CS_REDIRECT_URI, CS_SCOPES];
+    NSString *urlString = [NSString stringWithFormat:@"https://app.cloud66.com/oauth/authorize?client_id=%@&redirect_uri=%@&response_type=code&scope=%@", CS_CLIENT_ID, CS_REDIRECT_URI, CS_SCOPES];
     
     return [NSURL URLWithString:urlString];
 }
