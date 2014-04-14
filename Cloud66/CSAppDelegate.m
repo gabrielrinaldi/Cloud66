@@ -26,6 +26,7 @@
 //
 
 #import <Crashlytics/Crashlytics.h>
+#import <CrashlyticsLumberjack/CrashlyticsLogger.h>
 #import <CocoaLumberjack/DDASLLogger.h>
 #import <CocoaLumberjack/DDTTYLogger.h>
 #import <CSNotificationView/CSNotificationView.h>
@@ -77,6 +78,7 @@ NSString * const CSFailedToRegisterForRemoteNotificationsNotification = @"CSFail
 
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[CrashlyticsLogger sharedInstance]];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:CSUserDidLogoutNotification object:nil];

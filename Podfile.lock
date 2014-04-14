@@ -25,6 +25,8 @@ PODS:
   - CocoaLumberjack/Extensions (1.6.5.1):
     - CocoaLumberjack/Core
   - CSNotificationView (0.3.5)
+  - CrashlyticsLumberjack (1.0.1):
+    - CocoaLumberjack/Core
   - FormatterKit/TimeIntervalFormatter (1.4.2)
   - GROAuth2SessionManager (0.2.2):
     - AFNetworking (~> 2.2.1)
@@ -34,6 +36,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.2.1)
   - CocoaLumberjack (~> 1.6.5)
+  - CrashlyticsLumberjack (~> 1.0.1)
   - CSNotificationView (~> 0.3.5)
   - FormatterKit/TimeIntervalFormatter (~> 1.4.2)
   - GROAuth2SessionManager (~> 0.2.2)
@@ -44,6 +47,7 @@ SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
   CocoaLumberjack: 17803afbade3126a377d32b8d23367264b44ced6
   CSNotificationView: 29176c646d622633e00e3296b40532d2bc90f379
+  CrashlyticsLumberjack: 8ee2adbd0f815d8b111e5f72cd82d39b08430ebc
   FormatterKit: 2c241963bc3bf3f2b52e82c0a8e29a8f9865bf3d
   GROAuth2SessionManager: 3500da9d67b18b6d31ea9c842eb5b8a84fb42b1c
   HockeySDK: aa28abb106de7804d31acf515f2c9aa4e6481fd0
