@@ -330,6 +330,7 @@
 			buildConfigurationList = C08D56FF17E0164F00BDC0D4 /* Build configuration list for PBXNativeTarget "Cloud66" */;
 			buildPhases = (
 				C8726A965E914D49967B46F9 /* Check Pods Manifest.lock */,
+				C01A0CDB18FBB646005442D0 /* Version bump */,
 				C08D56C917E0164F00BDC0D4 /* Sources */,
 				C08D56CA17E0164F00BDC0D4 /* Frameworks */,
 				C08D56CB17E0164F00BDC0D4 /* Resources */,
@@ -431,6 +432,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		C01A0CDB18FBB646005442D0 /* Version bump */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Version bump";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Update build version with number of commits\nBUILD_NUMBER=$(git rev-list HEAD | wc -l | tr -d ' ')\n\n# Set git SHA for this build\nGIT_SHA=$(git rev-parse --short HEAD)\n\n# Update version string with build number\nLINES_CHANGED=$(git status --porcelain | wc -l | tr -d ' ')\nPLIST_CHANGED=$(git status --porcelain | grep \"${INFOPLIST_FILE}\" | wc -l | tr -d ' ')\nif [ \"$LINES_CHANGED\" == \"1\" -a \"$PLIST_CHANGED\" == \"1\" ]; then\nGIT_RELEASE_VERSION=$(git describe --tags --always)\nelse\nGIT_RELEASE_VERSION=$(git describe --tags --always --dirty)\nfi\n\n# Update plist with new values\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${GIT_RELEASE_VERSION#*v}\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $BUILD_NUMBER\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n/usr/libexec/PlistBuddy -c \"Set :GitSHA $GIT_SHA\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
 		C0AF1F0718B9D0A8000EE96B /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
